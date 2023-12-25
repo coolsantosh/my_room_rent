@@ -19,7 +19,7 @@ class RoomView(APIView):
         print(roomlist)
         return Response({'status':'success','data':serializer.data},status=status.HTTP_200_OK)
     
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     def post(self, request, format=None):
         serializer = RoomSerializer(data=request.data)
         if serializer.is_valid():
@@ -28,17 +28,17 @@ class RoomView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
 class RoomTypeView(APIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     def get(self,request,formate=None):
          return Response({'status':'success','data':[r_type[0] for r_type in ROOM_TYPE_CHOICES]},status=status.HTTP_200_OK)
 
 class RoomStatusView(APIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     def get(self,request,formate=None):
          return Response({'status':'success','data':[s_choice[0] for s_choice in STATUS_CHOICES]},status=status.HTTP_200_OK)
 
 class RoomDistrictView(APIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     def get(self,request,formate=None):
          return Response({'status':'success','data':[d_choice[0] for d_choice in DISTRICT_CHOICE]},status=status.HTTP_200_OK)
 
